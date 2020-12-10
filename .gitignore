@@ -1,0 +1,32 @@
+# IDEs
+/.idea
+/.project
+/nbproject
+/.buildpath
+/.settings
+/.docker-sync
+*.sublime-*
+*.AppleDouble
+*.AppleDB
+*.AppleDesktop
+Temporary Items
+.apdisk
+.tmp
+GPATH
+GRTAGS
+GTAGS
+
+# OS
+.DS_Store
+
+# environment
+.env
+.git
+.npmrc
+.yarn
+.yarnrc
+.yarn-integrity
+node_modules
+yarn-error.log
+
+public

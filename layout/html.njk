@@ -1,0 +1,60 @@
+{% set style %}
+    {%- include 'style/reset.css' -%}
+    {%- include 'style/variables.css' -%}
+    {%- include 'style/main.css' -%}
+{% endset %}
+
+{% set isHome = page.url == '/' %}
+
+{% set pageTitle %}
+    {%- if isHome -%}
+        {{- meta.title -}}
+    {%- else -%}
+        {{- title or meta.title -}}
+    {%- endif -%}
+{% endset %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="title" content="{{ pageTitle }}" />
+        <meta name="description" content="{{ meta.description }}" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@100,400;100,700&display=swap" />
+        <style>{{ style | minifyCss | safe }}</style>
+        <title>{{ pageTitle }}</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__container container">
+                <nav class="header__menu">
+                    <ul class="menu">
+                        {% for item in collections.page %}
+                            <li class="menu__item">
+                                <a 
+                                    class="menu__link{% if page.url == item.url %} menu__link--active{% endif %}" 
+                                    href="{{ item.url | url }}">
+                                    {{ item.data.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+                <a class="header__home" href="/">📬{% if not isHome %} Back{% endif %}</a>
+                <div class="clear"></div>
+            </div>
+        </header>
+
+        <main class="main">
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container container">
+                {{- meta.titleAlt -}}
+            </div>
+        </footer>
+    </body>
+</html>

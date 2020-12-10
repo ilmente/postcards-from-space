@@ -1,0 +1,15 @@
+{% extends './html.njk' %}
+
+{% block main %}
+    {% if postcard is defined %}
+        <section class="container container--wide">
+            <img alt="title" src="{{ postcard | url }}" class="postcard" />
+        </section>
+    {% endif %}
+
+    <article class="container">
+        <div class="content">
+            {{ content | safe }}
+        </div>
+    </article>
+{% endblock %}

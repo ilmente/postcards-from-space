@@ -1,0 +1,4 @@
+[build]
+    publish = "public/"
+    command = "NODE_ENV=production ELEVENTY_ENV=production yarn deploy"
+    functions = "netlify/function/"

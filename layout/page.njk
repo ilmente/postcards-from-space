@@ -1,0 +1,11 @@
+{% extends './html.njk' %}
+
+{% block main %}
+    <div class="container">
+        {% block content %}
+            <div class="content">
+                {{ content | safe }}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

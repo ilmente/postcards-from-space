@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "postcards-from-space",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "deploy": "node netlify/script/fetch-content && eleventy"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@11ty/eleventy": "~0.11.1",
+    "clean-css": "~4.2.3",
+    "dropbox": "~8.2.0",
+    "fs-extra": "~9.0.1",
+    "isomorphic-fetch": "~3.0.0"
+  }
+}

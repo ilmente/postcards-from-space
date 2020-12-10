@@ -1,0 +1,16 @@
+{% extends './page.njk' %}
+
+{% block content %}
+    <ul class="list">
+        {%- for post in collections.post %}
+            <li class="list__item clear">
+                <a class="list__link" href="{{ post.url | url }}">
+                    {{ post.data.title }}
+                </a>
+                <section class="list__intro">
+                    {{ post.data.intro }}
+                </section>
+            </li>
+        {%- endfor %}
+    </ul>
+{% endblock %}

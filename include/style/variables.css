@@ -1,0 +1,24 @@
+:root {
+    --font-base: 19px;
+    --font-size-text: 1rem;
+    --font-size-h1: 1.5rem;
+    --font-size-h2: 1.25rem;
+    --font-size-h3: 1rem;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+    --line-height: 1.5;
+
+    --color-text: #555555;
+    --color-text-alt: #CCCCCC;
+    --color-link: #1775C5;
+    --color-bg: #F3F3F3;
+    --color-border: #DDDDDD;
+    --color-selection: #D3DFEB;
+
+    --spacing: 1.5rem;
+    --spacing-small: 0.25rem;
+
+    --viewport: 35rem;
+    --viewport-narrow: 20rem;
+    --viewport-wide: 50rem;
+}
