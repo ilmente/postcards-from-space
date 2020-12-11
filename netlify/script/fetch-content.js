@@ -33,6 +33,8 @@ async function fetchContent() {
         const fileName = join(contentDir, `.${entry.path_lower}`);
         const fileContent = file.result.fileBinary.toString();
 
+        console.log(file.result.fileBinary);
+
         console.log('-', entry.path_lower);
 
         await outputFile(fileName, fileContent);
