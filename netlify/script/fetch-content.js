@@ -31,9 +31,7 @@ async function fetchContent() {
 
         const file = await dropbox.filesDownload({ path: entry.path_lower })
         const fileName = join(contentDir, `.${entry.path_lower}`);
-        const fileContent = file.result.fileBinary.toString();
-
-        console.log(file.result.fileBinary);
+        const fileContent = file.result.fileBinary;
 
         console.log('-', entry.path_lower);
 
