@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+const { post } = require('axios');
 
 const buildHookUrl = process.env.NETLIFY_BUILD_HOOK_URL;
 
@@ -43,10 +43,7 @@ exports.handler = async function(event, context, callback) {
         });
     }
 
-    await fetch(buildHookUrl, {
-        method: 'POST',
-        body: ''
-    });
+    await post(buildHookUrl);
 
     send({
         config: {

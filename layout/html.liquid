@@ -1,18 +1,18 @@
-{% set style %}
-    {%- include 'style/reset.css' -%}
-    {%- include 'style/variables.css' -%}
-    {%- include 'style/main.css' -%}
-{% endset %}
+{%- capture style -%}
+    {% import 'style/reset.css' %}
+    {% import 'style/variables.css' %}
+    {% import 'style/main.css' %}
+{%- endcapture -%}
 
-{% set isHome = page.url == '/' %}
+{%- assign isHome = page.url == '/' -%}
 
-{% set pageTitle %}
+{%- capture pageTitle -%}
     {%- if isHome -%}
-        {{- meta.title -}}
+        {{- meta.title -}} 
     {%- else -%}
         {{- title or meta.title -}}
     {%- endif -%}
-{% endset %}
+{%- endcapture -%}
 
 <!doctype html>
 <html lang="en">
@@ -23,7 +23,7 @@
         <meta name="description" content="{{ meta.description }}" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@100,400;100,700&display=swap" />
-        <style>{{ style | minifyCss | safe }}</style>
+        <style>{{ style | minifyCss }}</style>
         <title>{{ pageTitle }}</title>
     </head>
     <body>
@@ -36,13 +36,13 @@
                                 <a 
                                     class="menu__link{% if page.url == item.url %} menu__link--active{% endif %}" 
                                     href="{{ item.url | url }}">
-                                    {{ item.data.title }}
+                                    {{- item.data.title -}}
                                 </a>
                             </li>
                         {% endfor %}
                     </ul>
                 </nav>
-                <a class="header__home" href="/">📬{% if not isHome %} Back{% endif %}</a>
+                <a class="header__home" href="/">📬{% unless isHome %} Back{% endunless %}</a>
                 <div class="clear"></div>
             </div>
         </header>
